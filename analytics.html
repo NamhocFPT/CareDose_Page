@@ -283,7 +283,6 @@
           <h1>CareDose Traffic Dashboard <span id="loading"
               style="display:none; font-size:12px; padding:6px 10px; margin-left:10px; border-radius:999px; border:1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.06);">Loading
               real data…</span></h1>
-          <p>Privacy-friendly analytics — không cần DB ở phía bạn (demo dữ liệu)</p>
         </div>
         <div></div>
       </div>
@@ -345,7 +344,7 @@
         <div class="chart">
           <h3>Device Breakdown</h3>
           <div class="svg-wrap">
-            <svg id="barChart" viewBox="0 0 600 280" width="100%" height="280" aria-label="Bar chart"></svg>
+            <canvas id="barChart" width="600" height="280" aria-label="Bar chart"></canvas>
           </div>
         </div>
       </section>
@@ -361,12 +360,6 @@
           <div id="deviceDetails"></div>
         </div>
       </section>
-
-      <div class="note-info">
-        <span style="color:var(--primary); font-weight: 900;">ℹ️ Note:</span>
-        Data demo. Khi dùng thật, bạn có thể lấy số liệu từ Plausible/Umami/GoatCounter (hosted) hoặc từ Cloudflare
-        Analytics, rồi đổ vào trang này.
-      </div>
     </div>
   </div>
 

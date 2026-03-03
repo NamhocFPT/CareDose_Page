@@ -114,16 +114,28 @@ function setKpiFromSeries(range, series, allTime) {
   setText("#kpi-time", fmt(Math.round(avgPerDay)));// Avg Visits / Day
   setText("#kpi-ref", (range === "7" ? "Last 7 days" : "Last 30 days") + " • GoatCounter public counter JSON");
 }
+function setupCanvas(canvas) {
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  const cssW = Math.max(1, Math.round(rect.width));
+  const cssH = Math.max(1, Math.round(rect.height));
+
+  // set internal buffer size
+  canvas.width = Math.round(cssW * dpr);
+  canvas.height = Math.round(cssH * dpr);
+
+  const ctx = canvas.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // draw in CSS pixels
+  return ctx;
+}
 
 function drawLineChartFromSeries(series) {
   const canvas = document.getElementById("lineChart");
   if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const w = canvas.width;
-  const h = canvas.height;
+  const ctx = setupCanvas(canvas);
+  const w = canvas.getBoundingClientRect().width;
+  const h = canvas.getBoundingClientRect().height;
+  ctx.clearRect(0, 0, w, h);
   const padL = 40, padR = 16, padT = 16, padB = 28;
   const plotW = w - padL - padR;
   const plotH = h - padT - padB;
