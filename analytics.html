@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CareDose — Traffic Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    /* Extra styles specific to analytics page */
+    .dash-bg {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(93, 174, 255, .10), rgba(174, 232, 255, .30));
+    }
+
+    .dash-header {
+      background: #fff;
+      border-bottom: 1px solid rgba(15, 23, 42, .08);
+    }
+
+    .dash-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 14px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, .04);
+      font-weight: 900;
+      color: rgba(15, 23, 42, .78);
+    }
+
+    .back:hover {
+      background: rgba(15, 23, 42, .06);
+    }
+
+    .dash-title h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    .dash-title p {
+      margin: 4px 0 0;
+      color: rgba(15, 23, 42, .60);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 22px 0 18px;
+    }
+
+    .chip {
+      border: 0;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: #fff;
+      font-weight: 900;
+      color: rgba(15, 23, 42, .62);
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .chip.is-active {
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: var(--shadow);
+    }
+
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .kpi .card {
+      padding: 18px;
+      background: #fff;
+    }
+
+    .kpi .label {
+      font-size: .85rem;
+      color: rgba(15, 23, 42, .55);
+      font-weight: 900;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .kpi .value {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: rgba(15, 23, 42, .9);
+    }
+
+    .kpi .delta {
+      color: #16a34a;
+      font-weight: 900;
+      font-size: .85rem;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 1000px) {
+      .kpi {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .kpi {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dash-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 1000px) {
+      .dash-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 23, 42, .08);
+      box-shadow: var(--shadow-soft);
+      padding: 16px;
+    }
+
+    .chart h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: rgba(15, 23, 42, .86);
+    }
+
+    .svg-wrap {
+      width: 100%;
+      height: 280px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, .03);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .note-info {
+      margin-top: 18px;
+      border-radius: 18px;
+      border: 2px solid rgba(47, 128, 237, .18);
+      background: linear-gradient(90deg, rgba(93, 174, 255, .20), rgba(174, 232, 255, .20));
+      padding: 14px 16px;
+      font-weight: 800;
+      color: rgba(15, 23, 42, .72);
+      text-align: center;
+    }
+
+    .table {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 23, 42, .08);
+      box-shadow: var(--shadow-soft);
+      padding: 16px;
+    }
+
+    .table h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: rgba(15, 23, 42, .86);
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid rgba(15, 23, 42, .06);
+    }
+
+    .row:first-of-type {
+      border-top: 0;
+    }
+
+    .bar {
+      height: 8px;
+      background: rgba(15, 23, 42, .12);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .bar>div {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      width: 0%;
+      transition: width .25s ease;
+    }
+
+    .path {
+      font-weight: 900;
+      color: rgba(15, 23, 42, .86);
+    }
+
+    .meta {
+      text-align: right;
+      min-width: 82px;
+    }
+
+    .meta .n {
+      font-weight: 900;
+      color: rgba(15, 23, 42, .86);
+    }
+
+    .meta .p {
+      font-size: .85rem;
+      color: rgba(15, 23, 42, .52);
+      font-weight: 900;
+    }
+  </style>
+
+  <!-- (Optional) If you use a hosted analytics provider (Plausible/Umami/GoatCounter),
+       you can call their API from analytics.js and populate values dynamically.
+  -->
+
+  <!-- GoatCounter tracking (real traffic) -->
+  <!-- 1) Create a site at https://goatcounter.com and note your CODE (e.g. "mycaredose") -->
+  <!-- 2) Replace YOUR_GOATCOUNTER_CODE below -->
+  <script>
+    // IMPORTANT: replace this with your GoatCounter code (subdomain)
+    window.CAREDOSE_GOATCOUNTER_CODE = "caredose";
+    // Optional: if you track multiple domains/sites, you can override endpoint:
+    // window.goatcounter = { endpoint: "https://YOUR_GOATCOUNTER_CODE.goatcounter.com/count" };
+  </script>
+  <script data-goatcounter="https://caredose.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
+</head>
+
+<body>
+
+  <div id="gcBanner"
+    style="display:none; margin:16px auto; max-width:1100px; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.18); background: rgba(255,153,51,.12); color:#fff;">
+    <strong>⚠️ Chưa cấu hình GoatCounter.</strong>
+    <span style="opacity:.9">Hãy sửa <code>window.CAREDOSE_GOATCOUNTER_CODE</code> trong <code>analytics.html</code>
+      thành code của bạn, và bật “Allow adding visitor counts on your website” trong GoatCounter Site settings.</span>
+  </div>
+
+  <div class="dash-bg">
+    <header class="dash-header">
+      <div class="container dash-top">
+        <a class="back" href="./index.html" aria-label="Quay về landing page">
+          ← Back
+        </a>
+        <div class="dash-title">
+          <h1>CareDose Traffic Dashboard <span id="loading"
+              style="display:none; font-size:12px; padding:6px 10px; margin-left:10px; border-radius:999px; border:1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.06);">Loading
+              real data…</span></h1>
+          <p>Privacy-friendly analytics — không cần DB ở phía bạn (demo dữ liệu)</p>
+        </div>
+        <div></div>
+      </div>
+    </header>
+
+    <div class="container" style="padding: 22px 0 64px;">
+      <div class="filters" id="filters">
+        <button class="chip is-active" data-range="7">7 ngày qua</button>
+        <button class="chip" data-range="30">30 ngày qua</button>
+        <button class="chip" data-range="90">90 ngày qua</button>
+      </div>
+
+      <section class="kpi" aria-label="Chỉ số KPI">
+        <div class="card">
+          <div class="label">
+            <span>Total Visits</span>
+            <span style="color:var(--primary); font-weight:900;">↗</span>
+          </div>
+          <div class="value" id="kpi-total">—</div>
+          <div class="delta">Real data (GoatCounter)</div>
+        </div>
+
+        <div class="card">
+          <div class="label">
+            <span>Unique Visitors</span>
+            <span style="color:var(--secondary); font-weight:900;">👥</span>
+          </div>
+          <div class="value" id="kpi-unique">—</div>
+          <div class="delta">Real data (GoatCounter)</div>
+        </div>
+
+        <div class="card">
+          <div class="label">
+            <span>Avg Visits / Day</span>
+            <span style="color:var(--sky); font-weight:900;">⏱</span>
+          </div>
+          <div class="value" id="kpi-time">—</div>
+          <div class="delta">Real data (GoatCounter)</div>
+        </div>
+
+        <div class="card">
+          <div class="label">
+            <span>Notes</span>
+            <span style="color:#7c3aed; font-weight:900;">★</span>
+          </div>
+          <div class="value" id="kpi-ref">—</div>
+          <div class="muted small" style="margin-top:6px; font-weight:800;">Counter JSON is cached ~30 minutes</div>
+        </div>
+      </section>
+
+      <section class="dash-grid" aria-label="Biểu đồ">
+        <div class="chart">
+          <h3>Visitors Over Time</h3>
+          <div class="svg-wrap">
+            <svg id="lineChart" viewBox="0 0 600 280" width="100%" height="280" aria-label="Line chart"></svg>
+          </div>
+        </div>
+
+        <div class="chart">
+          <h3>Device Breakdown</h3>
+          <div class="svg-wrap">
+            <svg id="barChart" viewBox="0 0 600 280" width="100%" height="280" aria-label="Bar chart"></svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="dash-grid" aria-label="Bảng thống kê" style="margin-top:18px;">
+        <div class="table">
+          <h3>Top Pages</h3>
+          <div id="topPages"></div>
+        </div>
+
+        <div class="table">
+          <h3>Device Details</h3>
+          <div id="deviceDetails"></div>
+        </div>
+      </section>
+
+      <div class="note-info">
+        <span style="color:var(--primary); font-weight: 900;">ℹ️ Note:</span>
+        Data demo. Khi dùng thật, bạn có thể lấy số liệu từ Plausible/Umami/GoatCounter (hosted) hoặc từ Cloudflare
+        Analytics, rồi đổ vào trang này.
+      </div>
+    </div>
+  </div>
+
+  <script src="./analytics.js"></script>
+</body>
+
+</html>

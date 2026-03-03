@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CareDose - Ứng dụng tủ thuốc thông minh </title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- (Optional) Privacy-friendly analytics (no DB on your side)
+       Uncomment and set data-domain to your domain if you use Plausible.
+  <script defer data-domain="caredose.app" src="https://plausible.io/js/script.js"></script>
+  -->
+</head>
+
+<body>
+  <div class="page-bg">
+    <!-- Header / Navigation -->
+    <header class="site-header" id="top">
+      <nav class="container nav">
+        <a class="brand" href="#home" aria-label="CareDose">
+          <img class="brand-logo" src="./assets/logo.png" alt="CareDose logo" width="20" height="20" loading="lazy" />
+          <span class="brand-name">CareDose</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false" data-nav-toggle>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </button>
+
+        <div class="nav-links" data-nav-links>
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#guide">Hướng dẫn sử dụng</a>
+          <a href="#register">Đăng ký sớm</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn btn-primary btn-pill" href="#register">Nhận ưu đãi Premium</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home" class="section hero">
+        <div class="container grid-2 hero-grid">
+          <div class="hero-copy">
+            <h1>CareDose — Hướng dẫn sử dụng app chăm sóc uống thuốc thông minh</h1>
+            <p class="lead">Ứng dụng giúp bạn không quên thuốc, quản lý liệu trình dễ dàng và an toàn.</p>
+            <div class="hero-cta">
+              <a class="btn btn-white btn-pill" href="#guide">Xem hướng dẫn</a>
+              <a class="btn btn-outline-white btn-pill" href="#register">Đăng ký sớm</a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="mascot-float">
+              <img class="mascot" src="./assets/image.png" alt="CareDose Mascot" loading="lazy" />
+            </div>
+
+            <!-- Floating cards -->
+            <div class="float-card float-card-left">
+              <div class="icon-badge bg-secondary" aria-hidden="true">
+                <!-- Bell -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M13.7 21a2 2 0 01-3.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div>
+                <div class="muted small">Nhắc nhở</div>
+                <div class="strong">Uống thuốc lúc 9:00 AM</div>
+              </div>
+            </div>
+
+            <div class="float-card float-card-right">
+              <div class="icon-badge bg-primary" aria-hidden="true">
+                <!-- Calendar -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div>
+                <div class="muted small">Hôm nay</div>
+                <div class="strong">3/3 liều đã hoàn thành ✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guide -->
+      <section id="guide" class="section section-white">
+        <div class="container">
+          <header class="section-head center">
+            <h2>Hướng dẫn sử dụng CareDose</h2>
+            <p class="subhead">Bắt đầu chỉ với 3 bước đơn giản</p>
+          </header>
+
+          <div class="grid-3 cards">
+            <article class="card card-grad grad-1">
+              <div class="pill pill-primary">BƯỚC 1</div>
+              <h3>Đăng ký tài khoản</h3>
+
+              <div class="media">
+                <img src="./assets/Register.png" alt="Màn hình đăng ký" loading="lazy" />
+              </div>
+
+              <ul class="checklist">
+                <li>
+                  <span class="mini-ic" aria-hidden="true">
+                    <!-- Mail -->
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2" />
+                      <path d="M4 6l8 7 8-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  Nhập Email
+                </li>
+                <li>
+                  <span class="mini-ic" aria-hidden="true">
+                    <!-- User -->
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                      <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </span>
+                  Nhập Họ tên
+                </li>
+                <li>
+                  <span class="mini-ic" aria-hidden="true">
+                    <!-- Shield -->
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4z" stroke="currentColor"
+                        stroke-width="2" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  Tạo mật khẩu
+                </li>
+              </ul>
+            </article>
+
+            <article class="card card-grad grad-2">
+              <div class="pill pill-primary">BƯỚC 2</div>
+              <h3>Đăng nhập tài khoản</h3>
+
+              <div class="media">
+                <img src="./assets/Login.png" alt="Màn hình đăng nhập" loading="lazy" />
+              </div>
+
+              <div class="note note-white">
+                💡 Sử dụng email và mật khẩu đã đăng ký để truy cập ứng dụng
+              </div>
+            </article>
+
+            <article class="card card-grad grad-3">
+              <div class="pill pill-white">BƯỚC 3</div>
+              <h3>Đăng ký thành công</h3>
+
+              <div class="media">
+                <img src="./assets/Success.png" alt="Màn hình thành công" loading="lazy" />
+              </div>
+
+              <div class="note note-white">
+                🎉 Chào mừng đến với CareDose! Bắt đầu thêm lịch uống thuốc ngay.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="section section-soft">
+        <div class="container">
+          <header class="section-head center">
+            <h2>Tính năng nổi bật</h2>
+            <p class="subhead">CareDose mang đến giải pháp chăm sóc sức khỏe toàn diện</p>
+          </header>
+
+          <div class="grid-3 cards features">
+            <article class="card plain">
+              <div class="feature-ic">
+                <!-- Bell -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M13.7 21a2 2 0 01-3.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3>Smart Reminder</h3>
+              <p>Nhắc nhở thông minh theo thời gian và liều lượng cá nhân hóa</p>
+            </article>
+
+            <article class="card plain">
+              <div class="feature-ic">
+                <!-- Calendar -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3>Medication Schedule</h3>
+              <p>Lên lịch uống thuốc chi tiết theo từng ngày, tuần, tháng</p>
+            </article>
+
+            <article class="card plain">
+              <div class="feature-ic">
+                <!-- Heart -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 21s-7-4.6-9.3-9C.9 8 .9 5.8 2.2 4.2 3.5 2.6 5.4 2 7 2c2.1 0 3.7 1.1 5 2.6C13.3 3.1 14.9 2 17 2c1.6 0 3.5.6 4.8 2.2 1.3 1.6 1.3 3.8-.7 7.8C19 16.4 12 21 12 21z"
+                    stroke="currentColor" stroke-width="2" fill="none" />
+                </svg>
+              </div>
+              <h3>Daily Tracking</h3>
+              <p>Theo dõi tiến độ uống thuốc hàng ngày một cách trực quan</p>
+            </article>
+
+            <article class="card plain">
+              <div class="feature-ic">
+                <!-- Bar chart -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3>Regimen Management</h3>
+              <p>Quản lý nhiều liệu trình điều trị cùng lúc dễ dàng</p>
+            </article>
+
+            <article class="card plain">
+              <div class="feature-ic">
+                <!-- Users -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M17 21a4 4 0 00-8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <circle cx="13" cy="7" r="3" stroke="currentColor" stroke-width="2" />
+                  <path d="M23 21a3 3 0 00-6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <circle cx="20" cy="8" r="2" stroke="currentColor" stroke-width="2" />
+                  <path d="M1 21a3 3 0 016 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <circle cx="4" cy="8" r="2" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </div>
+              <h3>Family Profile</h3>
+              <p>Tạo hồ sơ cho cả gia đình, chăm sóc người thân hiệu quả</p>
+            </article>
+
+            <article class="card plain">
+              <div class="feature-ic">
+                <!-- Shield -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h3>Health Summary</h3>
+              <p>Tổng hợp báo cáo sức khỏe chi tiết và bảo mật tuyệt đối</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social -->
+      <section class="section section-white">
+        <div class="container center">
+          <header class="section-head center">
+            <h2>Theo dõi CareDose</h2>
+            <p class="subhead">Cập nhật thông tin ra mắt và mẹo sử dụng mỗi ngày</p>
+          </header>
+
+          <div class="social-row">
+            <a class="social-btn facebook" href="https://www.facebook.com/profile.php?id=61586866198376" target="_blank"
+              rel="noopener">
+              <!-- Facebook -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M22 12a10 10 0 10-11.6 9.9v-7H8v-3h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4V12H16l-.4 3h-2.1v7A10 10 0 0022 12z" />
+              </svg>
+              <span class="sr-only">Facebook</span>
+            </a>
+
+            <a class="social-btn tiktok" href="https://www.tiktok.com/@caredose.vn" target="_blank" rel="noopener">
+              <!-- Simple TikTok-ish icon (placeholder) -->
+              <svg class="icon-tiktok" width="26" height="26" viewBox="0 0 48 48" aria-hidden="true" role="img">
+                <!-- Cyan shadow -->
+                <path fill="#25F4EE"
+                  d="M20.6 19.2v-2.3c-1.6-.2-3.2.1-4.6.8-2.8 1.4-4.6 4.2-4.6 7.3 0 4.6 3.7 8.3 8.3 8.3 1.3 0 2.6-.3 3.7-.9-2.2 1.5-5.3 1.3-7.3-.6-1.2-1.1-1.9-2.7-1.9-4.4 0-2.3 1.3-4.4 3.4-5.5 1-.5 2-.7 3-.7z" />
+                <!-- Pink shadow -->
+                <path fill="#FE2C55"
+                  d="M21.8 18.2c1 1.2 2.7 2 4.5 2v-3.1c-.3 0-.7-.1-1-.2-1-.3-1.9-1-2.5-1.8v8.9c0 4.6-3.7 8.3-8.3 8.3-1.8 0-3.5-.6-4.9-1.5 1.5 2.2 4 3.7 6.8 3.7 4.6 0 8.3-3.7 8.3-8.3V18.2z" />
+                <!-- Main (black) -->
+                <path fill="#111111"
+                  d="M26.3 17.1v3.1c1.7 0 3.3-.6 4.6-1.6v-3c-1.2 1-2.8 1.5-4.6 1.5zm-9.7 16.2c3 0 5.4-2.4 5.4-5.4V12h3.9c-.2-1-.7-1.9-1.4-2.6H19v18.5c0 3-2.4 5.4-5.4 5.4-.9 0-1.8-.2-2.6-.6 1 .4 2 .6 3 .6zM13.6 17.7c1.1-.7 2.4-1 3.7-.9v-3.2c-.3 0-.6 0-1 0-1.7.2-3.3.9-4.5 2-1.3 1.3-2.1 3-2.1 4.9 0 1.8.7 3.5 1.9 4.7-1-1.2-1.6-2.7-1.6-4.3 0-1.8.7-3.5 2.1-4.8.5-.5 1-.9 1.5-1.2z" />
+              </svg>
+              <span class="sr-only">TikTok</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Register -->
+      <section id="register" class="section register">
+        <div class="container">
+          <div class="register-card">
+            <div class="grid-2 register-grid">
+              <!-- Form -->
+              <div>
+                <h2>Đăng ký sớm — Nhận ưu đãi gói Premium Member</h2>
+                <p class="muted">Người đăng ký sớm nhận ưu đãi Premium khi app ra mắt.</p>
+
+                <form class="form" id="early-access-form"
+                  action="https://docs.google.com/forms/d/e/1FAIpQLSfu0Jbq9fdVAt8jFWek8ZQa8v-bnIWxpUGTrPpAvJa66lcMtQ/formResponse"
+                  method="POST" target="hidden_iframe">
+                  <label class="field">
+                    <input type="email" name="entry.1506093864" placeholder="Nhập email của bạn" required>
+                  </label>
+
+                  <label class="field">
+                    <input type="text" name="entry.870572289" placeholder="Nhập họ tên" required>
+                  </label>
+
+                  <button id="early-access-btn" type="submit" class="btn btn-primary btn-lg">Đăng ký ngay</button>
+                  <p class="tiny muted" id="early-access-msg" style="margin-top:10px;"></p>
+                </form>
+
+                <iframe id="hidden_iframe" name="hidden_iframe" style="display:none;"></iframe>
+
+                <div class="mini-links">
+                  <a class="mini-link" href="./analytics.html">Xem trang Traffic Dashboard</a>
+                </div>
+              </div>
+
+              <!-- QR -->
+              <div class="qr-wrap">
+                <div class="qr-card" aria-label="QR đăng ký sớm">
+                  <div class="qr-bg">
+                    <!-- <div class="qr-grid" id="qr-grid" aria-hidden="true"></div> -->
+                    <img class="qr-img" src="./assets/CareDose Premium member.png" alt="QR đăng ký Google Form">
+
+                  </div>
+                </div>
+
+                <div class="qr-caption">
+                  <div class="qr-title">Quét QR để đăng ký nhanh</div>
+                  <div class="muted">🔥 Nhận ngay ưu đãi Premium Member</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          (function () {
+            const form = document.getElementById("early-access-form");
+            const iframe = document.getElementById("hidden_iframe");
+            const msg = document.getElementById("early-access-msg");
+            const btn = document.getElementById("early-access-btn");
+
+            let submitted = false;
+
+            form.addEventListener("submit", function () {
+              submitted = true;
+              msg.textContent = "⏳ Đang gửi đăng ký...";
+              btn.disabled = true;
+            });
+
+            iframe.addEventListener("load", function () {
+              if (!submitted) return; // bỏ qua lần load đầu
+              submitted = false;
+
+              msg.textContent = "✅ Đã gửi đăng ký! Cảm ơn bạn.";
+              btn.disabled = false;
+              form.reset();
+            });
+          })();
+        </script>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="section section-white">
+        <div class="container">
+          <header class="section-head center">
+            <h2>Câu hỏi thường gặp</h2>
+            <p class="subhead">Tìm hiểu thêm về CareDose</p>
+          </header>
+
+          <div class="faq" data-faq>
+
+            <details class="faq-item">
+              <summary>Premium có miễn phí không?</summary>
+              <div class="faq-body">
+                Người đăng ký sớm sẽ nhận những ưu đãi cho gói Premium Member. Sau khi ra mắt chính thức, Premium Member
+                dự
+                kiến có mức phí <strong>99,000đ/tháng</strong> với đầy đủ tính năng cao cấp.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>App có nhắc uống thuốc tự động không?</summary>
+              <div class="faq-body">
+                Có! CareDose có hệ thống nhắc nhở thông minh với thông báo đẩy, âm thanh tùy chỉnh, và có thể tích hợp
+                smartwatch để đảm bảo bạn không bỏ lỡ liều thuốc.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Dữ liệu có an toàn không?</summary>
+              <div class="faq-body">
+                Dữ liệu được mã hóa và tuân thủ nghiêm ngặt các quy định bảo mật thông tin sức khỏe (bạn có thể mô tả
+                chuẩn bạn dùng trong phần Privacy/Terms).
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="brand-row">
+            <span class="brand-mark footer-mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 21s-7-4.6-9.3-9C.9 8 .9 5.8 2.2 4.2 3.5 2.6 5.4 2 7 2c2.1 0 3.7 1.1 5 2.6C13.3 3.1 14.9 2 17 2c1.6 0 3.5.6 4.8 2.2 1.3 1.6 1.3 3.8-.7 7.8C19 16.4 12 21 12 21z"
+                  fill="currentColor" />
+              </svg>
+            </span>
+            <span class="footer-title">CareDose</span>
+          </div>
+          <p class="muted footer-desc">CareDose — Nhắc uống thuốc thông minh, theo dõi dễ dàng.</p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-head">Liên kết</div>
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-head">Mạng xã hội</div>
+          <div class="footer-social">
+            <a class="footer-social-btn" href="https://www.facebook.com/profile.php?id=61586866198376" target="_blank"
+              rel="noopener" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M22 12a10 10 0 10-11.6 9.9v-7H8v-3h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4V12H16l-.4 3h-2.1v7A10 10 0 0022 12z" />
+              </svg>
+            </a>
+            <a class="footer-social-btn" href="https://www.tiktok.com/@caredose.vn" target="_blank" rel="noopener"
+              aria-label="TikTok">
+              <svg class="icon-tiktok" width="26" height="26" viewBox="0 0 48 48" aria-hidden="true" role="img">
+                <!-- Cyan shadow -->
+                <path fill="#25F4EE"
+                  d="M20.6 19.2v-2.3c-1.6-.2-3.2.1-4.6.8-2.8 1.4-4.6 4.2-4.6 7.3 0 4.6 3.7 8.3 8.3 8.3 1.3 0 2.6-.3 3.7-.9-2.2 1.5-5.3 1.3-7.3-.6-1.2-1.1-1.9-2.7-1.9-4.4 0-2.3 1.3-4.4 3.4-5.5 1-.5 2-.7 3-.7z" />
+                <!-- Pink shadow -->
+                <path fill="#FE2C55"
+                  d="M21.8 18.2c1 1.2 2.7 2 4.5 2v-3.1c-.3 0-.7-.1-1-.2-1-.3-1.9-1-2.5-1.8v8.9c0 4.6-3.7 8.3-8.3 8.3-1.8 0-3.5-.6-4.9-1.5 1.5 2.2 4 3.7 6.8 3.7 4.6 0 8.3-3.7 8.3-8.3V18.2z" />
+                <!-- Main (black) -->
+                <path fill="#111111"
+                  d="M26.3 17.1v3.1c1.7 0 3.3-.6 4.6-1.6v-3c-1.2 1-2.8 1.5-4.6 1.5zm-9.7 16.2c3 0 5.4-2.4 5.4-5.4V12h3.9c-.2-1-.7-1.9-1.4-2.6H19v18.5c0 3-2.4 5.4-5.4 5.4-.9 0-1.8-.2-2.6-.6 1 .4 2 .6 3 .6zM13.6 17.7c1.1-.7 2.4-1 3.7-.9v-3.2c-.3 0-.6 0-1 0-1.7.2-3.3.9-4.5 2-1.3 1.3-2.1 3-2.1 4.9 0 1.8.7 3.5 1.9 4.7-1-1.2-1.6-2.7-1.6-4.3 0-1.8.7-3.5 2.1-4.8.5-.5 1-.9 1.5-1.2z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        © 2026 CareDose. All rights reserved.
+      </div>
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
